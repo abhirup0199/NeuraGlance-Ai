@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeuraGlance AI</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Add Andika font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Add Xeroda font -->
+    <link href="https://fonts.cdnfonts.com/css/xeroda" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Background Video -->
+    <video id="bgVideo" autoplay loop muted playsinline>
+      <source
+        src="https://cdn.vecteezy.com/videos/60265732/purple-plexus-technology-data-network-background.mp4"
+        type="video/mp4"
+      />
+    </video>
+
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo">NeuraGlance AI</a>
+          <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <nav id="navMenu">
+            <ul>
+              <li>
+                <a href="#" class="nav-link active" data-page="home">
+                  <i class="fas fa-home"></i>Home
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link" data-page="analyze">
+                  <i class="fas fa-chart-line"></i>Analyze
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link" data-page="about">
+                  <i class="fas fa-users"></i>About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link" data-page="contact">
+                  <i class="fas fa-envelope"></i>Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <!-- Home Page -->
+        <div class="page active" id="home">
+          <div class="hero">
+            <h1 class="gradient-title">Welcome to NeuraGlance AI</h1>
+          </div>
+          <div class="features">
+            <div class="feature-card purple">
+              <h3>Innovative Design</h3>
+              <p class="subtitle">Smart Design That Just Feels Right</p>
+              <p>
+                Our interface is fast, flexible, and easy to use. Because a
+                great experience should never slow you down.
+              </p>
+              <a href="#about" class="btn btn-purple nav-btn" data-page="about"
+                >Learn More</a
+              >
+            </div>
+            <div class="feature-card blue">
+              <h3>Powerful Analysis</h3>
+              <p class="subtitle">Data-driven insights at your fingertips</p>
+              <p>
+                Identify patterns, sentiments, and recurring themes with ease.
+                Our analytics empower smarter, faster product choices.
+              </p>
+              <a
+                href="#analyze"
+                class="btn btn-purple nav-btn"
+                data-page="analyze"
+                >Explore Analytics</a
+              >
+            </div>
+            <div class="feature-card purple">
+              <h3>Expert Support</h3>
+              <p class="subtitle">You've Got Questions, We've Got Insight</p>
+              <p>
+                We turn feedback into insight and insight into help. Get expert
+                answers, fast and personalized.
+              </p>
+              <a
+                href="#contact"
+                class="btn btn-purple nav-btn"
+                data-page="contact"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 3rem">
+            <a
+              href="#analyze"
+              class="btn btn-purple nav-btn"
+              data-page="analyze"
+              style="padding: 1rem 2rem; font-size: 1.1rem"
+              >Get Started Today</a
+            >
+          </div>
+        </div>
+
+        <!-- Analyze Page -->
+        <div class="page" id="analyze">
+          <div class="analyze-header">
+            <h1 class="section-title">Product Review Analysis</h1>
+            <p class="section-subtitle">
+              Enter a product name below and our AI will analyze reviews to
+              provide valuable insights about customer sentiment, common issues,
+              and standout features.
+            </p>
+          </div>
+
+          <div class="analyze-container">
+            <div class="search-tabs">
+              <button
+                id="searchByName"
+                class="search-tab-btn active"
+                data-search-type="name"
+              >
+                <i class="fas fa-search"></i> Search by Name
+              </button>
+              <button
+                id="searchByURL"
+                class="search-tab-btn"
+                data-search-type="url"
+              >
+                <i class="fas fa-link"></i> Search by URL
+              </button>
+            </div>
+
+            <div class="search-forms">
+              <div id="nameSearchForm" class="search-form active">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="productName"
+                    placeholder="Enter product name (e.g., iPhone 15, Sony WH-1000XM5)"
+                    required
+                  />
+                  <button type="button" class="analyze-btn" id="analyzeNameBtn">
+                    <i class="fas fa-chart-line"></i> Analyze
+                  </button>
+                </div>
+              </div>
+
+              <div id="urlSearchForm" class="search-form">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="productURL"
+                    placeholder="Enter product URL (e.g., https://www.amazon.com/...)"
+                    required
+                  />
+                  <button type="button" class="analyze-btn" id="analyzeURLBtn">
+                    <i class="fas fa-chart-line"></i> Analyze
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div id="analysisResult" class="analysis-result">
+              <!-- Analysis results will be displayed here -->
+            </div>
+
+            <div class="empty-state" id="emptyState">
+              <i class="fas fa-search"></i>
+              <h3>Enter product details to begin</h3>
+              <p>
+                Once you submit a product name or URL, our AI will analyze
+                reviews from multiple sources to provide comprehensive insights.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Page -->
+        <div class="page" id="about">
+          <h1 class="section-title">About Us</h1>
+
+          <div class="analyze-form">
+            <h3 class="form-title">Our Mission & Vision</h3>
+            <p>
+              At NeuraGlance AI, we aim to become the leading platform that
+              bridges the gap between product feedback and confident choices. By
+              harnessing the power of AI, we revolutionize how people interpret
+              reviews—delivering
+            </p>
+            <p>
+              fast, intelligent, and user-focused insights. Our goal is to
+              simplify decision-making in an overwhelming digital world,
+              empowering every user to make informed, confident buying decisions
+              with ease.
+            </p>
+          </div>
+
+          <div class="team-section">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-subtitle">
+              The brilliant minds behind NeuraGlance AI
+            </p>
+            <div class="team-grid">
+              <div class="team-member">
+                <div class="team-member-img">AD</div>
+                <div class="team-member-info">
+                  <h3>Abhirup Datta Khan</h3>
+                  <p>Project Lead</p>
+                </div>
+              </div>
+              <div class="team-member">
+                <div class="team-member-img">SM</div>
+                <div class="team-member-info">
+                  <h3>Subhodeep Mondal</h3>
+                  <p>Member</p>
+                </div>
+              </div>
+              <div class="team-member">
+                <div class="team-member-img">BD</div>
+                <div class="team-member-info">
+                  <h3>Bhaskar Das</h3>
+                  <p>Member</p>
+                </div>
+              </div>
+              <div class="team-member">
+                <div class="team-member-img">SM</div>
+                <div class="team-member-info">
+                  <h3>Samayeeta Maitra</h3>
+                  <p>Member</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div class="page" id="contact">
+          <h1 class="section-title">Contact Us</h1>
+
+          <div class="contact-grid">
+            <div class="contact-form">
+              <h3 class="form-title">Send us a Message</h3>
+              <form action="https://getform.io/f/bjjmgodb" method="POST">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Enter your name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="Enter your email address"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Enter your message"
+                    required
+                  ></textarea>
+                </div>
+
+                <!-- add hidden Honeypot input to prevent spams -->
+                <input
+                  type="hidden"
+                  name="_gotcha"
+                  style="display: none !important"
+                />
+
+                <button type="submit" class="btn btn-purple">
+                  Send Message
+                </button>
+              </form>
+            </div>
+
+            <div class="contact-info">
+              <h3 class="contact-info-title">Get in Touch</h3>
+              <div class="contact-detail">
+                <h4>Email</h4>
+                <p>info@neuraglance.ai</p>
+              </div>
+              <div class="contact-detail">
+                <h4>Phone</h4>
+                <p>+91 xxxxx-xxxxx</p>
+              </div>
+              <div class="contact-detail">
+                <h4>Address</h4>
+                <p>N/A</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <a href="#" class="footer-logo">NeuraGlance AI</a>
+          <p>Turning reviews into clear, actionable insights</p>
+          <p class="copyright">© 2025 NeuraGlance AI. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script must be loaded at the end of body -->
+    <script src="script.js"></script>
+  </body>
+</html>
